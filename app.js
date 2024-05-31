@@ -4,6 +4,8 @@ const port = 3000;
 
 const eventsRouter = require("./routers/events.js");
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.use('/', eventsRouter);
 

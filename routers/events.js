@@ -3,12 +3,13 @@ const router = express.Router();
 
 const eventsControllers = require("../controllers/events.js");
 
+const multer = require("multer");
 
-router.get("events/", eventsControllers.index);
+router.get("/events", eventsControllers.index);
 
-router.post("events/store", eventsControllers.store);
+router.post("/events", eventsControllers.store);
 
-router.put("events/update", eventsControllers.update);
+router.put("/events/:id", eventsControllers.update);
 
 
 module.exports = router;
