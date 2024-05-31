@@ -5,11 +5,11 @@ const eventsControllers = require("../controllers/events.js");
 
 const multer = require("multer");
 
-router.get("/events", eventsControllers.index);
+router.get("/", eventsControllers.index);
 
-router.post("/events", eventsControllers.store);
+router.post("/store", eventsControllers.store);
 
-router.put("/events/:id", eventsControllers.update);
+router.put("/:id", eventsControllers.update);
 
 
 module.exports = router;

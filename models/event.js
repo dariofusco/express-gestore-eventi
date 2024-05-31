@@ -18,15 +18,10 @@ class Event {
 
     static writeJSONData = (fileName, newData) => {
         const filePath = path.join(__dirname, `../db/${fileName}.json`);
-        const fileString = JSON.stringify(newData);
+        const data = this.readJSONData(fileName);
+        const fileString = JSON.stringify([...data, newData]);
         fs.writeFileSync(filePath, fileString);
-        fileData = newData;
     }
 }
-
-let event = new Event(1, "titolo di prova", "descrizione di prova", "data di prova", 5);
-
-//console.log(Event.writeJSONData('events', event));
-
 
 module.exports = Event;

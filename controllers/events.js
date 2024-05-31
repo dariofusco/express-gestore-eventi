@@ -1,13 +1,13 @@
 const path = require("path");
 const fs = require("fs");
 
-let events = require("../db/events.json");
-
 const Event = require('../models/event.js');
 
 const index = (req, res) => {
 
-let html = '<ul>';
+    const events = Event.readJSONData('events');
+
+    let html = '<ul>';
     events.forEach(event => {
         html += `<li>
                     <div>
@@ -22,6 +22,13 @@ let html = '<ul>';
 }
 
 const store = (req, res) => {
+    const { id, title, description, date, maxSeats } = req.body;
+
+    const event = new Event(id, title, description, date, maxSeats);
+    
+    Event.writeJSONData('events', event);
+
+    res.json(event);
 
 }
 

@@ -7,11 +7,8 @@ const eventsRouter = require("./routers/events.js");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use('/', eventsRouter);
 
-app.use('/store', eventsRouter);
-
-app.use('/update', eventsRouter);
+app.use('/events', eventsRouter);
 
 
 app.listen(port, () => {
